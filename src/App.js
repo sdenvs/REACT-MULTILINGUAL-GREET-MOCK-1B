@@ -1,4 +1,5 @@
 import './App.css'
+import MultiLangGreet from './multiGreet'
 
 const languageGreetingsList = [
   {
@@ -25,6 +26,6 @@ const languageGreetingsList = [
 ]
 
 // Replace your code here
-const App = () => <h1>Hello World</h1>
+const App = () => <MultiLangGreet details={languageGreetingsList} />
 
 export default App
