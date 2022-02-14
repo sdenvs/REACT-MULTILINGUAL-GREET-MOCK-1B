@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const StyButton = styled.button`
+export const StyButton = styled.button`
   color: ${props => (props.active ? '#ffffff' : '#db1c48')};
   background-color: ${props => (props.active ? '#db1c48' : '#ffffff')};
   border-style: solid;
@@ -10,5 +10,6 @@ const StyButton = styled.button`
   margin: 10px;
   padding: 10px;
 `
-
-export default StyButton
+export const StyListItem = styled.li`
+  display: ${props => (props.active ? 'inline' : 'none')};
+`

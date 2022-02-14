@@ -1,5 +1,6 @@
 import {useState} from 'react'
-import StyButton from './styledComponent'
+import {StyButton} from './styledComponent'
+import RenderGreet from '../RenderGreet'
 import './index.css'
 
 const languageList = {
@@ -11,23 +12,6 @@ const languageList = {
 function MultiLangGreet(props) {
   const [activeLang, setActiveLang] = useState(languageList.english)
   const {details} = props
-
-  const renderGreet = () => {
-    const renderItem = details.find(
-      eachItem => eachItem.buttonText === activeLang,
-    )
-    console.log(renderItem)
-
-    return (
-      <div className="w-100 text-center">
-        <img
-          className="greetImage"
-          src={renderItem.imageUrl}
-          alt={renderItem.imageAltText}
-        />
-      </div>
-    )
-  }
 
   return (
     <div className="bgDiv">
@@ -52,7 +36,15 @@ function MultiLangGreet(props) {
           {languageList.telugu}
         </StyButton>
       </div>
-      {renderGreet()}
+      <ul>
+        {details.map(eachItem => (
+          <RenderGreet
+            active={activeLang}
+            key={eachItem.id}
+            details={eachItem}
+          />
+        ))}
+      </ul>
     </div>
   )
 }
